@@ -3,6 +3,7 @@ import ProductInterface, {
   getShoppingProducts,
 } from "@/helpers/fetchingData";
 import truncateString from "@/helpers/truncateString";
+import Link from "next/link";
 import React from "react";
 
 const TextProducts = async () => {
@@ -18,19 +19,19 @@ const TextProducts = async () => {
           return (
             <div key={id} className="max-w-2xl mx-auto">
               <div className="bg-white shadow-md rounded-lg min-h-fit max-w-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
+                <Link href={`/${id}`}>
                   <img
                     className="rounded-t-lg object-contain h-64 w-full"
                     src={thumbnail}
                     alt="product image"
                   />
-                </a>
+                </Link>
                 <div className="px-5 pb-5">
-                  <a href="#">
+                  <Link href={`/${id}`}>
                     <h3 className="text-gray-900 font-semibold text-lg max-w-sm tracking-tight dark:text-white">
                       {productTitle}
                     </h3>
-                  </a>
+                  </Link>
                   <div className="flex items-center mt-2.5 mb-5">
                     <svg
                       className="w-5 h-5 text-yellow-300"

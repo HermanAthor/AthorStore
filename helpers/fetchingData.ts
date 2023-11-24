@@ -29,6 +29,9 @@ interface Product {
   thumbnail: string;
   images: string[];
 }
+interface productDetails {
+  productId: string | number;
+}
 
 export async function getProducts(): Promise<ProductInterface[]> {
   const res = await fetch("https://fakestoreapi.com/products");
@@ -48,6 +51,20 @@ export const getShoppingProducts = async (): Promise<Product[]> => {
   const results = await res.json();
   const products: Product[] = results.products;
   return products;
+};
+
+export const getProductsDetails = async (
+  productId: productDetails
+): Promise<Product[]> => {
+  const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+
+  if (!res.ok) {
+    throw new Error("failed to fetch product");
+  }
+  const product = await res.json();
+  console.log(product);
+
+  return await product;
 };
 
 ////https://dummyjson.com/products

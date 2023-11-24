@@ -1,6 +1,12 @@
-import React from "react";
+import { getProductsDetails } from "@/helpers/fetchingData";
+import React, { FC } from "react";
 
-function ProductPage() {
+interface pageProps {
+  params: { productId: number | string };
+}
+const ProductPage: FC<pageProps> = ({ params }) => {
+  const id = params.productId;
+  console.log(id);
   return (
     <div>
       <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -182,6 +188,6 @@ function ProductPage() {
       </section>
     </div>
   );
-}
+};
 
 export default ProductPage;
