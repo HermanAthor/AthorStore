@@ -6,11 +6,11 @@ type PropsType = {
   product: ProductInterface[];
 };
 
-function Testimonials({ category, product }: PropsType) {
+function SampleProducts({ category, product }: PropsType) {
   return (
     <div>
       <div>{category}</div>
-      <div className="carousel carousel-center max-w-screen-xl p-4 space-x-4 bg-white rounded-box">
+      <div className="carousel carousel-center max-w-screen-xl p-4 space-x-4 bg-white dark:bg-black rounded-box">
         {product.map((item) => (
           <div className="carousel-item">
             <div className="card w-96 h-80 bg-base-100 shadow-xl image-full">
@@ -18,8 +18,8 @@ function Testimonials({ category, product }: PropsType) {
                 <img src={item.image} alt={item.title} />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">{item.title}</h2>
+                <p></p>
                 <div className="card-actions justify-end">
                   <button className="btn btn-primary">Buy Now</button>
                 </div>
@@ -32,4 +32,4 @@ function Testimonials({ category, product }: PropsType) {
   );
 }
 
-export default Testimonials;
+export default SampleProducts;

@@ -10,7 +10,7 @@ const HeaderComp = () => {
   //const cartItems = useRecoilValue(cartState);
   const cartItems: any = {};
   return (
-    <div className="navbar dark:bg-gray-500 sticky top-0 z-20 bg-slate-600 text-2xl">
+    <div className="navbar dark:bg-gray-500 sticky top-0 z-30 bg-slate-600 text-2xl">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
