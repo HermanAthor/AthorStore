@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
 import SampleProducts from "@/components/SampleProducts";
+import Sponsers from "@/components/Sponsers";
+import TextProducts from "@/components/TextProducts";
 import { getProducts } from "@/helpers/fetchingData";
 import { filterProducts } from "@/helpers/filteredProducts";
 //import Image from "next/image";
@@ -27,13 +29,15 @@ export default async function Home() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden no-scrollbar">
+    <main className="flex min-h-screen flex-col items-center justify-between overflow-scroll no-scrollbar">
       <Hero />
-      {/* <ProductCard /> */}
+      <ProductCard />
       <SampleProducts product={womensClothing} category={"Women's clothing"} />
       <SampleProducts product={mensClothing} category={"Men's clothing"} />
       <SampleProducts product={electronics} category={"Electronics"} />
       <SampleProducts product={jewelery} category={"jewelery"} />
+      <Sponsers />
+      <TextProducts />
     </main>
   );
 }

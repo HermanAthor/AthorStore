@@ -12,7 +12,7 @@ const Hero = () => {
         </h1>
         <div className="flex justify-center items-center mt-8">
           <button className="p-4 m-4 rounded-full items-center text-white bg-black px-8">
-            <Link href="/home">Shop Now</Link>
+            <Link href="/shop">Shop Now</Link>
           </button>
         </div>
       </div>
