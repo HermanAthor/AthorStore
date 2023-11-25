@@ -10,15 +10,15 @@ const TextProducts = async () => {
   const data = await getShoppingProducts();
 
   return (
-    <div className=" container px-20 py-10">
+    <div className="px-3">
       <div className="text-xl md:text-2xl">Sample Products</div>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {data.map((product) => {
           const { id, title, thumbnail, price, rating } = product;
           const productTitle = truncateString({ str: title, num: 50 });
           return (
-            <div key={id} className="max-w-2xl mx-auto">
-              <div className="bg-white shadow-md rounded-lg min-h-fit max-w-sm dark:bg-gray-800 dark:border-gray-700">
+            <div key={id} className="">
+              <div className="bg-white shadow-md rounded-lg dark:bg-gray-800 dark:border-gray-700">
                 <Link href={`/${id}`}>
                   <img
                     className="rounded-t-lg object-contain h-64 w-full"
@@ -78,12 +78,12 @@ const TextProducts = async () => {
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                    <span className=" text-sm md:text-2xl font-bold text-gray-900 dark:text-white">
                       {price}DKK
                     </span>
                     <a
                       href="#"
-                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 block md:px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       Add to cart
                     </a>
