@@ -6,13 +6,13 @@ import ProductInterface, {
 import React, { FC } from "react";
 
 interface pageProps {
-  params: { productId: number | string };
+  params: { productId2: number | string };
 }
-const ProductPage: FC<pageProps> = async ({ params }) => {
-  const productId = params.productId;
+const ProductPage2: FC<pageProps> = async ({ params }) => {
+  const productId = params.productId2;
 
-  const getProductsDetails = async (): Promise<Product> => {
-    const res = await fetch(`https://dummyjson.com/products/${productId}`);
+  const getProductsDetails = async (): Promise<ProductInterface> => {
+    const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch product");
@@ -28,8 +28,7 @@ const ProductPage: FC<pageProps> = async ({ params }) => {
 
   const product = await getProductsDetails();
   console.log(product);
-  const { id, price, description, title, category, images, rating, thumbnail } =
-    product;
+  const { price, description, title, category, image, rating } = product;
 
   return (
     <div>
@@ -39,7 +38,7 @@ const ProductPage: FC<pageProps> = async ({ params }) => {
             <img
               alt={title}
               className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-              src={thumbnail}
+              src={image}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
@@ -105,7 +104,9 @@ const ProductPage: FC<pageProps> = async ({ params }) => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
-                  <span className="text-gray-600 ml-3">{rating} Reviews</span>
+                  <span className="text-gray-600 ml-3">
+                    {rating.count} Reviews
+                  </span>
                 </span>
                 <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                   <a className="text-gray-500">
@@ -207,4 +208,4 @@ const ProductPage: FC<pageProps> = async ({ params }) => {
   );
 };
 
-export default ProductPage;
+export default ProductPage2;

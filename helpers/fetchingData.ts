@@ -16,7 +16,7 @@ export default interface ProductInterface {
   // stock: number;
   // discountPercentage: number;
 }
-interface Product {
+export interface Product {
   id: number;
   title: string;
   description: string;
@@ -29,7 +29,7 @@ interface Product {
   thumbnail: string;
   images: string[];
 }
-interface productDetails {
+export interface productDetails {
   productId: string | number;
 }
 

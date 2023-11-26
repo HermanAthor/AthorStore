@@ -1,5 +1,6 @@
 import ProductInterface, { getProducts } from "@/helpers/fetchingData";
 import truncateString from "@/helpers/truncateString";
+import Link from "next/link";
 import React from "react";
 
 const ProductCard = async () => {
@@ -23,19 +24,19 @@ const ProductCard = async () => {
           return (
             <div className="">
               <div className="bg-white shadow-md rounded-lg dark:bg-gray-800 dark:border-gray-700 w-full">
-                <a href="#">
+                <Link href={`/products/${id}`}>
                   <img
                     className="rounded-t-lg object-contain h-64 w-full"
                     src={image}
                     alt={productTitle}
                   />
-                </a>
+                </Link>
                 <div className="px-5 pb-5">
-                  <a href="#">
+                  <Link href={`/products/${id}`}>
                     <h3 className="text-gray-900 font-semibold text-xs md:text-lg max-w-sm tracking-tight dark:text-white">
                       {productTitle}
                     </h3>
-                  </a>
+                  </Link>
                   <div className="flex items-center mt-2.5 mb-5">
                     <svg
                       className="w-5 h-5 text-yellow-300"
@@ -83,7 +84,7 @@ const ProductCard = async () => {
                   </div>
                   <div className="flex items-center justify-between flex-row">
                     <h3 className=" text-sm md:text-2xl font-bold text-gray-900 dark:text-white">
-                      {price}DKK
+                      ${price}
                     </h3>
                     <div className=" inline-block">
                       <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 block md:px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
