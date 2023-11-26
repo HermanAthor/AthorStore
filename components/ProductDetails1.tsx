@@ -1,31 +1,13 @@
-import ProductInterface from "@/helpers/fetchingData";
-import React, { FC } from "react";
+import ProductInterface, { Product } from "@/helpers/fetchingData";
+import React from "react";
 
 interface pageProps {
-  params: { productId2: number | string };
+  product: Product;
 }
-const ProductPage2: FC<pageProps> = async ({ params }) => {
-  const productId = params.productId2;
 
-  const getProductsDetails = async (): Promise<ProductInterface> => {
-    const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch product");
-    }
-
-    try {
-      const product = await res.json();
-      return product;
-    } catch (error) {
-      throw new Error("Error parsing JSON from the response");
-    }
-  };
-
-  const product = await getProductsDetails();
-
-  const { price, description, title, category, image, rating } = product;
-
+const ProductDetails1 = ({ product }: pageProps) => {
+  const { id, price, description, title, category, images, rating, thumbnail } =
+    product;
   return (
     <div>
       <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -34,7 +16,7 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
             <img
               alt={title}
               className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-              src={image}
+              src={thumbnail}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
@@ -100,9 +82,7 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
-                  <span className="text-gray-600 ml-3">
-                    {rating.count} Reviews
-                  </span>
+                  <span className="text-gray-600 ml-3">{rating} Reviews</span>
                 </span>
                 <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                   <a className="text-gray-500">
@@ -204,4 +184,4 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
   );
 };
 
-export default ProductPage2;
+export default ProductDetails1;
