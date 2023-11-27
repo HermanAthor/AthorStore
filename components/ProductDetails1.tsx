@@ -22,7 +22,7 @@ const ProductDetails1 = ({ product }: pageProps) => {
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
                 {category}
               </h2>
-              <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+              <h1 className="text-gray-900 dark:text-gray-400 text-3xl title-font font-medium mb-1">
                 {title}
               </h1>
               <div className="flex mb-4">
@@ -157,7 +157,7 @@ const ProductDetails1 = ({ product }: pageProps) => {
                 </div>
               </div>
               <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">
+                <span className="title-font font-medium text-2xl text-gray-900 dark:text-gray-100">
                   ${price}
                 </span>
                 <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">

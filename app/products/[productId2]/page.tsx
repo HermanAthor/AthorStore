@@ -1,5 +1,8 @@
+import ProductCard from "@/components/ProductCard";
+import SameProducts from "@/components/MoreProducts";
 import ProductInterface from "@/helpers/fetchingData";
 import React, { FC } from "react";
+import MoreProducts from "@/components/MoreProducts";
 
 interface pageProps {
   params: { productId2: number | string };
@@ -28,7 +31,7 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
 
   return (
     <div>
-      <section className="text-gray-700 body-font overflow-hidden bg-white">
+      <section className="text-gray-700 dark:text-gray-300 dark:bg-gray-900 body-font overflow-hidden bg-white">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto h-4/5 flex flex-wrap">
             <img
@@ -40,7 +43,7 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
                 {category}
               </h2>
-              <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+              <h1 className="text-gray-900 dark:text-gray-400 text-3xl title-font font-medium mb-1">
                 {title}
               </h1>
               <div className="flex mb-4">
@@ -177,7 +180,7 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
                 </div>
               </div>
               <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">
+                <span className="title-font font-medium dark:text-gray-100 text-2xl text-gray-900">
                   ${price}
                 </span>
                 <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
@@ -199,6 +202,7 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
             </div>
           </div>
         </div>
+        <MoreProducts productCategory={category} />
       </section>
     </div>
   );

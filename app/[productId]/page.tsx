@@ -1,6 +1,6 @@
 import ProductCard from "@/components/ProductCard";
 import ProductDetails1 from "@/components/ProductDetails1";
-import SameProducts from "@/components/SameProducts";
+import SameProducts from "@/components/MoreProducts";
 import ProductInterface, {
   Product,
   getProductsDetails,
@@ -36,8 +36,6 @@ const ProductPage: FC<pageProps> = async ({ params }) => {
     <div>
       <ProductDetails1 product={product} />
       <SameProducts productCategory={productCategory} />
-
-      <ProductCard />
     </div>
   );
 };
