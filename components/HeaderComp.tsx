@@ -34,7 +34,7 @@ const HeaderComp = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link href="/home">Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
               <a>About Us</a>
@@ -68,7 +68,7 @@ const HeaderComp = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link href="/home">Home</Link>
+            <Link href="/">Home</Link>
           </li>
           <li tabIndex={0}>
             <details>
