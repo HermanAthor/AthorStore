@@ -36,7 +36,8 @@ const ProductPage: FC<pageProps> = async ({ params }) => {
     <div>
       <ProductDetails1 product={product} />
       <SameProducts productCategory={productCategory} />
-      {/* <ProductCard /> */}
+
+      <ProductCard />
     </div>
   );
 };

@@ -9,15 +9,17 @@ interface pageProps {
 
 const SameProducts = async ({ productCategory }: pageProps) => {
   const products = await getProducts();
+  console.log(productCategory);
   return (
     <div className="px-3">
-      <div className="text-xl md:text-2xl">Similar Products</div>
+      <div className="text-xl md:text-2xl">More Products</div>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-        {products?.map((product) => {
-          const { id, title, description, category, rating, image, price } =
-            product;
-          const productTitle = truncateString({ str: title, num: 50 });
-          if (category === productCategory) {
+        {products
+          // .filter((product) => product.category === productCategory)
+          .map((product) => {
+            const { id, title, description, category, rating, image, price } =
+              product;
+            const productTitle = truncateString({ str: title, num: 50 });
             return (
               <div className="">
                 <div className="bg-white shadow-md rounded-lg dark:bg-gray-800 dark:border-gray-700 w-full">
@@ -93,8 +95,7 @@ const SameProducts = async ({ productCategory }: pageProps) => {
                 </div>
               </div>
             );
-          }
-        })}
+          })}
       </div>
     </div>
   );
