@@ -4,6 +4,7 @@ export default interface ProductInterface {
   title: string;
   description: string;
   category: string;
+  quantity: number;
   image: string;
   rating: {
     count: number;
@@ -25,6 +26,7 @@ export interface Product {
   rating: number;
   stock: number;
   brand: string;
+  quantity: number;
   category: string;
   thumbnail: string;
   images: string[];

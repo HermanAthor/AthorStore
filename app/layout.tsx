@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import HeaderComp from "@/components/HeaderComp";
 import Footer from "@/components/Footer";
+import RecoilProvider from "@/context/recoilProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <HeaderComp />
-        {children}
-        <Footer />
+        <RecoilProvider>
+          <HeaderComp />
+          {children}
+          <Footer />
+        </RecoilProvider>
       </body>
     </html>
   );
