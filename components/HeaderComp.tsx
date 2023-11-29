@@ -1,14 +1,16 @@
 "use client";
 
+import cartState from "@/context/recoilContext";
 //import { cartState } from "@/context/CartContext/cartContext";
 import Link from "next/link";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
-//import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 const HeaderComp = () => {
-  //const cartItems = useRecoilValue(cartState);
-  const cartItems: any = {};
+  //const [cartItems, setCartItems] = useRecoilState<any>(cartState);
+  const cartItems = useRecoilValue<any>(cartState);
+  //const cartItems: any = {};
   return (
     <div className="navbar dark:bg-gray-500 sticky top-0 z-30 bg-slate-600 text-2xl">
       <div className="navbar-start">
@@ -51,7 +53,7 @@ const HeaderComp = () => {
               <Link href="/cart">
                 <div className="indicator">
                   <span className="indicator-item badge text-white bg-red-400">
-                    1
+                    {cartItems?.length}
                   </span>
                   <div className="text-3xl">
                     <FaShoppingCart />
@@ -87,7 +89,7 @@ const HeaderComp = () => {
             <Link href="/cart">
               <div className="indicator">
                 <span className="indicator-item badge text-white bg-red-400">
-                  1
+                  {cartItems?.length}
                 </span>
                 <div className="text-3xl">
                   <FaShoppingCart />

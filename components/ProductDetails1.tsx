@@ -1,5 +1,6 @@
 import ProductInterface, { Product } from "@/helpers/fetchingData";
 import React from "react";
+import BuyButton from "./BuyButton";
 
 interface pageProps {
   product: Product;
@@ -160,9 +161,10 @@ const ProductDetails1 = ({ product }: pageProps) => {
                 <span className="title-font font-medium text-2xl text-gray-900 dark:text-gray-100">
                   ${price}
                 </span>
-                <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                <BuyButton text={"Add to Cart"} product={product} />
+                {/* <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                   Add to cart
-                </button>
+                </button> */}
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
