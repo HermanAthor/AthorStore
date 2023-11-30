@@ -29,23 +29,6 @@ const Cart = () => {
   }, []);
 
   // Add items to Cart function
-  /*const addToCart = (product) => {
-    const isItemInCart = cartItems.find(
-      (cartItem) => cartItem.id === product.id
-    );
-
-    if (isItemInCart) {
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.id === product.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
-    }
-  };*/
   // Remove Items from cart
 
   /*const removeFromCart = (item) => {
@@ -66,7 +49,7 @@ const Cart = () => {
 
   return (
     <>
-      <div className="h-screen bg-gray-100 dark:bg-gray-700 pt-20 overflow-scroll">
+      <div className="h-screen bg-gray-100 dark:bg-gray-700 pt-20 overflow-scroll no-scrollbar">
         <h1 className="mb-10 text-center text-2xl font-bold">Your Items</h1>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
           <div className="rounded-lg md:w-2/3">
