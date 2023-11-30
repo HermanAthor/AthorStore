@@ -1,6 +1,6 @@
 import ProductInterface, { Product } from "@/helpers/fetchingData";
 import React from "react";
-import BuyButton from "./BuyButton";
+import BuyButton from "./cartButtons/BuyButton";
 
 interface pageProps {
   product: Product;

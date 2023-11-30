@@ -2,7 +2,7 @@ import ProductInterface, { getProducts } from "@/helpers/fetchingData";
 import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
 import React from "react";
-import BuyButton from "./BuyButton";
+import BuyButton from "./cartButtons/BuyButton";
 
 const ProductCard = async () => {
   const products = await getProducts();

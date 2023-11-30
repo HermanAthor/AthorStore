@@ -5,7 +5,7 @@ import ProductInterface, {
 import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
 import React from "react";
-import BuyButton from "./BuyButton";
+import BuyButton from "./cartButtons/BuyButton";
 
 const TextProducts = async () => {
   const data = await getShoppingProducts();

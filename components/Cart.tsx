@@ -3,6 +3,9 @@
 import cartState from "@/context/recoilContext";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
+import AddButton from "./cartButtons/AddButton";
+import RemoveItem from "./cartButtons/RemoveItem";
+import DeleteFromCart from "./cartButtons/DeleteFromCart";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useRecoilState<any>(cartState);
@@ -31,6 +34,10 @@ const Cart = () => {
   }, [cartItems]);
   const shippingAmount = 4.99;
   const grandTotal = subTotal + shippingAmount;
+
+  const checkOut = () => {
+    alert("You can't checkOut right now but no worries we are working on it");
+  };
 
   return (
     <>
@@ -62,43 +69,21 @@ const Cart = () => {
                       <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
                         {title}
                       </h2>
-                      <p className="mt-1 text-xs text-gray-700 dark:text-gray-100">
-                        36EU - 4US
-                      </p>
                     </div>
                     <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                       <div className="flex items-center border-gray-100">
-                        <span className="cursor-pointer  bg-gray-100 dark:bg-gray-700 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                          {" "}
-                          -{" "}
-                        </span>
+                        <RemoveItem item={item} text={"-"} />
                         <input
                           className="h-8 w-8 bg-white dark:bg-gray-700 text-center text-xs outline-none"
                           type="number"
                           value={quantity}
                           min="1"
                         />
-                        <button className="cursor-pointer  bg-gray-100 dark:bg-gray-700 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                          {" "}
-                          +{" "}
-                        </button>
+                        <AddButton item={item} text={"+"} />
                       </div>
                       <div className="flex items-center space-x-4">
                         <p className="text-sm">{price}</p>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
+                        <DeleteFromCart item={item} />
                       </div>
                     </div>
                   </div>
@@ -131,7 +116,10 @@ const Cart = () => {
                 </p>
               </div>
             </div>
-            <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
+            <button
+              onClick={() => checkOut()}
+              className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
+            >
               Check out
             </button>
           </div>
