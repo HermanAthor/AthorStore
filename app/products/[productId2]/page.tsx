@@ -1,4 +1,3 @@
-import ProductCard from "@/components/ProductCard";
 import SameProducts from "@/components/MoreProducts";
 import ProductInterface from "@/helpers/fetchingData";
 import React, { FC } from "react";

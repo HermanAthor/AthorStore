@@ -1,11 +1,14 @@
-import ProductInterface, { getProducts } from "@/helpers/fetchingData";
+import ProductInterface, { Product, getProducts } from "@/helpers/fetchingData";
 import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 import BuyButton from "./cartButtons/BuyButton";
 
-const ProductCard = async () => {
-  const products = await getProducts();
+interface ProductCardProps {
+  products: ProductInterface[];
+}
+
+const ProductCard: FC<ProductCardProps> = ({ products }) => {
   return (
     <div className="px-3">
       <div className="text-xl md:text-2xl">Sample Products</div>

@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import ProductCard from "@/components/ProductCard";
 import SampleProducts from "@/components/SampleProducts";
 import Sponsers from "@/components/Sponsers";
 import TextProducts from "@/components/TextProducts";

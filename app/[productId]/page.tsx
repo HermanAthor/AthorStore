@@ -1,4 +1,3 @@
-import ProductCard from "@/components/ProductCard";
 import ProductDetails1 from "@/components/ProductDetails1";
 import SameProducts from "@/components/MoreProducts";
 import ProductInterface, {
