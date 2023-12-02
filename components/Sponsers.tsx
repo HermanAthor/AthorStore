@@ -43,6 +43,9 @@ const Sponsers = () => {
 
   return (
     <div className="container mx-auto pt-16">
+      <div className="text-xl md:text-3xl font bold py-5">
+        Companies that Trust us
+      </div>
       <div className="xl:py-16 lg:py-16 md:py-16 sm:py-16 px-15 flex flex-wrap">
         {logos.map((url, id) => (
           <div

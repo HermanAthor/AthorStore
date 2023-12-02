@@ -4,15 +4,19 @@ import ProductInterface, {
 } from "@/helpers/fetchingData";
 import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 import BuyButton from "./cartButtons/BuyButton";
 
-const TextProducts = async () => {
+interface pageProps {
+  productsText: string;
+}
+
+const AllProducts: FC<pageProps> = async ({ productsText }) => {
   const data = await getShoppingProducts();
 
   return (
     <div className="px-3">
-      <div className="text-xl md:text-2xl">Sample Products</div>
+      <div className="text-xl md:text-2xl">{productsText}</div>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {data.map((product) => {
           const { id, title, thumbnail, price, rating } = product;
@@ -93,4 +97,4 @@ const TextProducts = async () => {
     </div>
   );
 };
-export default TextProducts;
+export default AllProducts;

@@ -1,12 +1,15 @@
 import SameProducts from "@/components/MoreProducts";
-import ProductInterface from "@/helpers/fetchingData";
+import ProductInterface, { getProducts } from "@/helpers/fetchingData";
 import React, { FC } from "react";
 import MoreProducts from "@/components/MoreProducts";
+import ProductCard from "@/components/ProductCard";
+import { filterProducts } from "@/helpers/filteredProducts";
 
 interface pageProps {
   params: { productId2: number | string };
 }
 const ProductPage2: FC<pageProps> = async ({ params }) => {
+  const products = await getProducts();
   const productId = params.productId2;
 
   const getProductsDetails = async (): Promise<ProductInterface> => {
@@ -27,6 +30,10 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
   const product = await getProductsDetails();
 
   const { price, description, title, category, image, rating } = product;
+  const productCategories = filterProducts({
+    products: products,
+    category: category,
+  });
 
   return (
     <div>
@@ -201,7 +208,11 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
             </div>
           </div>
         </div>
-        <MoreProducts productCategory={category} />
+        <ProductCard
+          category={"Similar Products"}
+          products={productCategories}
+        />
+        {/* <MoreProducts productCategory={category} /> */}
       </section>
     </div>
   );

@@ -1,10 +1,10 @@
-import TextProducts from "@/components/TextProducts";
+import AllProducts from "@/components/AllProducts";
 import React from "react";
 
 function ShopPage() {
   return (
     <div>
-      <TextProducts />
+      <AllProducts productsText={"All Products"} />
     </div>
   );
 }

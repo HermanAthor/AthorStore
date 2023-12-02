@@ -6,12 +6,16 @@ import BuyButton from "./cartButtons/BuyButton";
 
 interface ProductCardProps {
   products: ProductInterface[];
+  category: string;
 }
 
-const ProductCard: FC<ProductCardProps> = ({ products }) => {
+const ProductCard: FC<ProductCardProps> = ({ products, category }) => {
+  const decodedCategory = decodeURIComponent(category);
   return (
-    <div className="px-3">
-      <div className="text-xl md:text-2xl">Sample Products</div>
+    <div className="px-3 pb-5">
+      <div className="text-xl md:text-3xl font bold py-5">
+        {decodedCategory}
+      </div>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {products?.map((product) => {
           const {

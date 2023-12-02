@@ -1,9 +1,9 @@
 import Hero from "@/components/Hero";
 import SampleProducts from "@/components/SampleProducts";
 import Sponsers from "@/components/Sponsers";
-import TextProducts from "@/components/TextProducts";
 import { getProducts } from "@/helpers/fetchingData";
 import { filterProducts } from "@/helpers/filteredProducts";
+import AllProducts from "@/components/AllProducts";
 //import Image from "next/image";
 
 export default async function Home() {
@@ -35,7 +35,7 @@ export default async function Home() {
       <SampleProducts product={electronics} category={"Electronics"} />
       <SampleProducts product={jewelery} category={"jewelery"} />
       <Sponsers />
-      <TextProducts />
+      <AllProducts productsText={"Sample Products"} />
     </main>
   );
 }

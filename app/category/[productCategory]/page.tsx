@@ -13,13 +13,11 @@ const ProductCategory: FC<PageProps> = ({ params }) => {
     ProductInterface[]
   >([]);
   const { productCategory } = params;
-  console.log(productCategory);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const decodedCategory = decodeURIComponent(productCategory);
-        console.log("Encoded Category", decodedCategory);
 
         const products = await getProducts();
         const filteredProducts = filterProducts({
@@ -38,7 +36,7 @@ const ProductCategory: FC<PageProps> = ({ params }) => {
 
   return (
     <div>
-      <ProductCard products={productCategories} />
+      <ProductCard category={productCategory} products={productCategories} />
     </div>
   );
 };
