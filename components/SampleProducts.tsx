@@ -1,13 +1,11 @@
 "use client";
 import ProductInterface from "@/helpers/fetchingData";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
-//import "./swipperstyles.css";
-
-import React from "react";
+import "swiper/css/pagination";
+import { Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 type PropsType = {
   category: string;
@@ -16,33 +14,19 @@ type PropsType = {
 
 function SampleProducts({ category, product }: PropsType) {
   return (
-    <div>
-      <div>{category}</div>
+    <div className="px-5">
+      <div className="text-xl md:text-3xl font-bold py-6">{category}</div>
       <Swiper
         navigation={true}
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        breakpoints={{
-          350: {
-            slidesPerView: 2,
-            spaceBetween: 2,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 2,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 3,
-          },
-          1024: {
-            slidesPerView: 6,
-            spaceBetween: 5,
-          },
-        }}
+        loop={true}
+        slidesPerView={3}
+        modules={[Navigation, Pagination]}
+        pagination={{ type: "fraction" }}
+        className="mySwiper"
       >
         {product.map((item) => {
           return (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide className="mySwiper" key={item.id}>
               <div className="card w-96 h-80 bg-base-100 shadow-xl image-full">
                 <figure>
                   <img src={item.image} alt={item.title} />
@@ -59,27 +43,74 @@ function SampleProducts({ category, product }: PropsType) {
           );
         })}
       </Swiper>
-
-      {/* <div className="carousel carousel-center max-w-screen-xl p-4 space-x-4 bg-white dark:bg-black rounded-box">
-        {product.map((item) => (
-          <div className="carousel-item">
-            <div className="card w-96 h-80 bg-base-100 shadow-xl image-full">
-              <figure>
-                <img src={item.image} alt={item.title} />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">{item.title}</h2>
-                <p></p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }
 
 export default SampleProducts;
+
+// breakpoints={{
+//           350: {
+//             slidesPerView: 2,
+//             spaceBetween: 2,
+//           },
+//           640: {
+//             slidesPerView: 2,
+//             spaceBetween: 2,
+//           },
+//           768: {
+//             slidesPerView: 3,
+//             spaceBetween: 3,
+//           },
+//           1024: {
+//             slidesPerView: 6,
+//             spaceBetween: 5,
+//           },
+//         }}
+
+{
+  /* <Swiper
+        navigation={true}
+        //modules={[Navigation, Pagination, Scrollbar, A11y]}
+      >
+        {product.map((item) => {
+          return (
+            <SwiperSlide className="mySwiper" key={item.id}>
+              <div className="card w-96 h-80 bg-base-100 shadow-xl image-full">
+                <figure>
+                  <img src={item.image} alt={item.title} />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">{item.title}</h2>
+                  <p></p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper> */
+}
+
+// function SampleProducts({ category, product }: PropsType) {
+//   return (
+//     <div>
+//       <div>{category}</div>
+//       <Swiper navigation={true} modules={[Navigation]}>
+//         <SwiperSlide>Slide 1</SwiperSlide>
+//         <SwiperSlide>Slide 2</SwiperSlide>
+//         <SwiperSlide>Slide 3</SwiperSlide>
+//         <SwiperSlide>Slide 4</SwiperSlide>
+//         <SwiperSlide>Slide 5</SwiperSlide>
+//         <SwiperSlide>Slide 6</SwiperSlide>
+//         <SwiperSlide>Slide 7</SwiperSlide>
+//         <SwiperSlide>Slide 8</SwiperSlide>
+//         <SwiperSlide>Slide 9</SwiperSlide>
+//       </Swiper>
+//     </div>
+//   );
+// }
+
+// export default SampleProducts;

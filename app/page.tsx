@@ -29,13 +29,12 @@ export default async function Home() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between overflow-scroll no-scrollbar">
+    <main>
       <Hero />
-      <ProductCard />
-      {/*<SampleProducts product={womensClothing} category={"Women's clothing"} />*/}
-      {/* <SampleProducts product={mensClothing} category={"Men's clothing"} />
+      <SampleProducts product={womensClothing} category={"Women's clothing"} />
+      <SampleProducts product={mensClothing} category={"Men's clothing"} />
       <SampleProducts product={electronics} category={"Electronics"} />
-      <SampleProducts product={jewelery} category={"jewelery"} />  */}
+      <SampleProducts product={jewelery} category={"jewelery"} />
       <Sponsers />
       <TextProducts />
     </main>
