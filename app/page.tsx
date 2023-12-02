@@ -4,7 +4,6 @@ import Sponsers from "@/components/Sponsers";
 import { getProducts } from "@/helpers/fetchingData";
 import { filterProducts } from "@/helpers/filteredProducts";
 import AllProducts from "@/components/AllProducts";
-//import Image from "next/image";
 
 export default async function Home() {
   const products = await getProducts();

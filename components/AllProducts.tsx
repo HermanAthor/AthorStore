@@ -28,7 +28,7 @@ const AllProducts: FC<pageProps> = async ({ productsText }) => {
                   <img
                     className="rounded-t-lg object-contain h-64 w-full"
                     src={thumbnail}
-                    alt="product image"
+                    alt={productTitle}
                   />
                 </Link>
                 <div className="px-5 pb-5">

@@ -5,7 +5,7 @@ export default interface ProductInterface {
   description: string;
   category: string;
   quantity: number;
-  image: string;
+  image?: string;
   rating: {
     count: number;
     rate: number;
@@ -29,7 +29,7 @@ export interface Product {
   quantity: number;
   category: string;
   thumbnail: string;
-  images: string[];
+  images?: string[];
 }
 export interface productDetails {
   productId: string | number;
