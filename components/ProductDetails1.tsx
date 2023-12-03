@@ -25,11 +25,26 @@ const ProductDetails1 = async ({ product }: pageProps) => {
       <section className="text-gray-700 body-font overflow-hidden dark:bg-gray-900 bg-white">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto h-4/5 flex flex-wrap">
-            <img
-              alt={title}
-              className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-              src={thumbnail}
-            />
+            <div className="lg:w-1/2 w-full">
+              <img
+                alt={title}
+                className="w-full object-cover object-center rounded border border-gray-200"
+                src={thumbnail}
+              />
+              <div className="md:grid md: grid-cols-4 w-full gap-2 pt-2">
+                {images?.map((image) => {
+                  return (
+                    <img
+                      key={image}
+                      alt={title}
+                      className="w-full object-cover h-28 object-center rounded border border-gray-200"
+                      src={image}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
                 {category}
