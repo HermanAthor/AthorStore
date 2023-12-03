@@ -1,16 +1,14 @@
 "use client";
 
 import cartState from "@/context/recoilContext";
-//import { cartState } from "@/context/CartContext/cartContext";
 import Link from "next/link";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 
 const HeaderComp = () => {
-  //const [cartItems, setCartItems] = useRecoilState<any>(cartState);
   const cartItems = useRecoilValue<any>(cartState);
-  //const cartItems: any = {};
+
   return (
     <div className="navbar dark:bg-gray-500 sticky top-0 z-30 bg-slate-600 text-2xl">
       <div className="navbar-start">

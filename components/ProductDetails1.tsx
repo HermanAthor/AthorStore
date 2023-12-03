@@ -1,6 +1,5 @@
 import ProductInterface, {
   Product,
-  getProducts,
   getShoppingProducts,
 } from "@/helpers/fetchingData";
 import React from "react";

@@ -1,4 +1,4 @@
-import ProductInterface, { getProducts } from "@/helpers/fetchingData";
+import { getProducts } from "@/helpers/fetchingData";
 import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
 import React from "react";
