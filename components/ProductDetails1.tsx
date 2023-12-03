@@ -1,14 +1,25 @@
-import ProductInterface, { Product } from "@/helpers/fetchingData";
+import ProductInterface, {
+  Product,
+  getProducts,
+  getShoppingProducts,
+} from "@/helpers/fetchingData";
 import React from "react";
 import BuyButton from "./cartButtons/BuyButton";
+import SimilarProductsCard from "./similar_products_components/SimilarProductsCard";
+import { filterProducts2 } from "@/helpers/filteredProducts";
 
 interface pageProps {
   product: Product;
 }
 
-const ProductDetails1 = ({ product }: pageProps) => {
+const ProductDetails1 = async ({ product }: pageProps) => {
+  const products: Product[] = await getShoppingProducts();
   const { id, price, description, title, category, images, rating, thumbnail } =
     product;
+  const productCategories = filterProducts2({
+    products: products,
+    category: category,
+  });
   return (
     <div>
       <section className="text-gray-700 body-font overflow-hidden dark:bg-gray-900 bg-white">
@@ -180,6 +191,10 @@ const ProductDetails1 = ({ product }: pageProps) => {
             </div>
           </div>
         </div>
+        <SimilarProductsCard
+          products={productCategories}
+          category={"Similar Products"}
+        />
       </section>
     </div>
   );
