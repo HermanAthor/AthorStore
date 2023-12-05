@@ -1,8 +1,8 @@
-const { default: Stripe } = require("stripe");
+const stripe = require("stripe")("your_stripe_secret_key");
 
 const createPrices = async (products) => {
   const pricePromises = products.map(async (product) => {
-    const price = await Stripe.prices.create({
+    const price = await stripe.prices.create({
       unit_amount: product.price * 100,
       currency: "usd",
       product: {
@@ -14,3 +14,5 @@ const createPrices = async (products) => {
   });
   return Promise.all(pricePromises);
 };
+
+module.exports = { createPrices };

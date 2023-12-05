@@ -4,6 +4,7 @@ interface addToCartProps {
   product: ProductInterface | Product;
   cartItems: ProductInterface[] | Product[];
   setCartItems: any;
+  alert: () => void;
 }
 interface removeFromCartProps {
   item: Product | ProductInterface;

@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import AddButton from "./cartButtons/AddButton";
 import RemoveItem from "./cartButtons/RemoveItem";
 import DeleteFromCart from "./cartButtons/DeleteFromCart";
+import axios from "axios";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useRecoilState<any>(cartState);
@@ -35,8 +36,14 @@ const Cart = () => {
   const shippingAmount = 4.99;
   const grandTotal = subTotal + shippingAmount;
 
-  const checkOut = () => {
-    alert("You can't checkOut right now but no worries we are working on it");
+  const checkOut = async () => {
+    axios
+      .post("/api/checkout", { cartItems })
+      .then((res) => {
+        console.log(res);
+        //window.location = res.data.sessionURL;
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

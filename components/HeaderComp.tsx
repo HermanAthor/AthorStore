@@ -8,6 +8,7 @@ import { useRecoilValue } from "recoil";
 
 const HeaderComp = () => {
   const cartItems = useRecoilValue<any>(cartState);
+  console.log(process.env.NEXT_PUBLIC_STRIPE_SECRET);
 
   return (
     <div className="navbar dark:bg-gray-500 sticky top-0 z-30 bg-slate-600 text-2xl">
