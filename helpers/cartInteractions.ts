@@ -1,16 +1,17 @@
 import ProductInterface, { Product } from "./fetchingData";
+//import toast, { Toaster } from "react-hot-toast";
 
 interface addToCartProps {
   product: ProductInterface | Product;
   cartItems: ProductInterface[] | Product[];
   setCartItems: any;
-  alert: () => void;
 }
 interface removeFromCartProps {
   item: Product | ProductInterface;
   cartItems: Product[] | ProductInterface[];
   setCartItems: any;
 }
+//const notify = () => toast("Item added to cart");
 
 export const addToCart = async ({
   product,
@@ -30,6 +31,7 @@ export const addToCart = async ({
           : cartItem
       )
     );
+    //notify();
   } else {
     setCartItems([...cartItems, { ...product, quantity: 1 }]);
   }
