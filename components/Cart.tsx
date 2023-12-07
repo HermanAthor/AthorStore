@@ -37,13 +37,7 @@ const Cart = () => {
   const grandTotal = subTotal + shippingAmount;
 
   const checkOut = async () => {
-    axios
-      .post("/api/checkout", { cartItems })
-      .then((res) => {
-        console.log(res);
-        //window.location = res.data.sessionURL;
-      })
-      .catch((err) => console.log(err));
+    alert("Sorry, You cant checkout right now but we are working on it.");
   };
 
   return (
