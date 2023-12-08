@@ -37,6 +37,9 @@ const HeaderComp = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
+              <Link href="/sanity">Sanity</Link>
+            </li>
+            <li>
               <a>About Us</a>
               <ul className="p-2">
                 <li>
@@ -69,6 +72,9 @@ const HeaderComp = () => {
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/sanity">Sanity</Link>
           </li>
           <li tabIndex={0}>
             <details>

@@ -8,7 +8,7 @@ export default {
     {name: 'description', type: 'text', title: 'Description of product'},
     {name: 'slug', type: 'slug', title: 'product Slug', options: {source: 'name'}},
     {name: 'price', type: 'number', title: 'Price'},
-    {name: 'price_id', type: 'number', title: 'Price ID from stripe'},
+    {name: 'price_id', type: 'slug', title: 'Price ID from stripe'},
     {name: 'ratingCount', type: 'number', title: 'Rating count'},
     {name: 'ratingRate', type: 'number', title: 'Rating rate'},
     {name: 'brand', type: 'string', title: 'Brand'},
