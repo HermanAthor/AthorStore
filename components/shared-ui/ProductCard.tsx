@@ -23,7 +23,7 @@ const ProductCard: FC<ProductCardProps> = ({ products, category }) => {
           const image = images.map((img: any) => img);
           const imageUrl = urlFor(image[0].asset._ref).url();
           return (
-            <div className="">
+            <div key={name} className="">
               <div className="bg-white shadow-md rounded-lg dark:bg-gray-800 dark:border-gray-700 w-full">
                 <Link href={`/`}>
                   <img

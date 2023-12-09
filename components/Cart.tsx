@@ -7,6 +7,7 @@ import AddButton from "./cartButtons/AddButton";
 import RemoveItem from "./cartButtons/RemoveItem";
 import DeleteFromCart from "./cartButtons/DeleteFromCart";
 import axios from "axios";
+import getStripe from "../libs/getStripe";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useRecoilState<any>(cartState);
@@ -37,7 +38,28 @@ const Cart = () => {
   const grandTotal = subTotal + shippingAmount;
 
   const checkOut = async () => {
-    alert("Sorry, You cant checkout right now but we are working on it.");
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (!response.ok) {
+      console.error(
+        "Failed to fetch data:",
+        response.status,
+        response.statusText
+      );
+      return;
+    }
+
+    const data = await response.json();
+
+    stripe.redirectToCheckout({ sessionId: data.id });
   };
 
   return (
@@ -63,8 +85,9 @@ const Cart = () => {
                   <img
                     src={photo}
                     alt={title}
-                    className="w-full rounded-lg sm:w-40 h-36"
+                    className="w-full object-contain rounded-lg sm:w-40 h-36"
                   />
+
                   <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                     <div className="mt-5 sm:mt-0">
                       <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
@@ -77,8 +100,10 @@ const Cart = () => {
                         <input
                           className="h-8 w-8 bg-white dark:bg-gray-700 text-center text-xs outline-none"
                           type="number"
+                          readOnly
                           value={quantity}
                           min="1"
+                          id="I do not this id for now"
                         />
                         <AddButton item={item} text={"+"} />
                       </div>
@@ -118,7 +143,7 @@ const Cart = () => {
               </div>
             </div>
             <button
-              onClick={() => checkOut()}
+              onClick={checkOut}
               className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
             >
               Check out
