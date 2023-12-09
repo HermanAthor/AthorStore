@@ -33,7 +33,7 @@ const MoreProducts = async ({ productCategory }: pageProps) => {
                   </Link>
                   <div className="px-5 pb-5">
                     <Link href={`/products/${id}`}>
-                      <h3 className="text-gray-900  font-semibold text-xs md:text-lg max-w-sm tracking-tight dark:text-white">
+                      <h3 className="text-gray-900  font-semibold text-xs md:text-lg max-w-sm tracking-tight dark:text-white line-clamp-1">
                         {productTitle}
                       </h3>
                     </Link>

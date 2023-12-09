@@ -14,17 +14,7 @@ const SanityProductsPage = async () => {
   const data = await getData();
   return (
     <div>
-      <p>Hello there</p>
-      {data.map((product: any) => {
-        const { name, price, ratingRate, ratingCount, images } = product;
-        const image = images.map((img: any) => img);
-        const imageUrl = urlFor(image[0].asset._ref).url();
-        return (
-          <div>
-            <ProductCard product={product} category={"Just Products"} />
-          </div>
-        );
-      })}
+      <ProductCard products={data} category={"Just products"} />
     </div>
   );
 };
