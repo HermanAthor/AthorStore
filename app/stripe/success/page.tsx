@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Button } from "@/components/Custom-ui/Button";
+import Link from "next/link";
 
 const SuccessPage: React.FC = () => {
   return (
@@ -8,11 +9,15 @@ const SuccessPage: React.FC = () => {
       <div className="bg-white-A700 flex flex-col font-poppins gap-[35px] items-center justify-start mx-auto w-full">
         <div className="flex flex-col items-start justify-start w-full">
           <div className="flex flex-row gap-4 items-start justify-start ml-36 md:ml-[0] md:px-5 w-[19%] md:w-full">
-            <h2 className="text-gray-500 text-lg">Home</h2>
+            <Link href={"/"}>
+              <h2 className="text-gray-500 text-lg">Home</h2>
+            </Link>
             <p className="text-bluegray-100 text-lg">
               <>&gt;</>
             </p>
-            <h2 className="text-gray-500 text-lg">Shopping Cart</h2>
+            <Link href={"/cart"}>
+              <h2 className="text-gray-500 text-lg">Shopping Cart</h2>
+            </Link>
             <p className="text-bluegray-100 text-lg">
               <>&gt;</>
             </p>
@@ -51,18 +56,20 @@ const SuccessPage: React.FC = () => {
               Checkout Complete!
             </h2>
             <h3 className="leading-[32.00px] mt-4 text-center text-gray-800 text-lg w-[98%] sm:w-full">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+              Thank you for shopping with us please check your email fro the
+              invoice.{" "}
             </h3>
-            <Button
-              className="cursor-pointer font-medium h-[60px] leading-[normal] mt-16 text-center text-lg w-[245px]"
-              shape="square"
-              color="gray_800"
-              size="xl"
-              variant="fill"
-            >
-              Go Shopping Again
-            </Button>
+            <Link href={"/"}>
+              <Button
+                className="cursor-pointer font-medium h-[60px] leading-[normal] mt-16 text-center text-lg w-[245px]"
+                shape="square"
+                color="gray_800"
+                size="xl"
+                variant="fill"
+              >
+                Go Shopping Again
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

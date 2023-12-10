@@ -9,8 +9,23 @@ export async function POST(req) {
   const origin = req.headers.get("origin");
   console.log(origin);
 
-  // const lineItems = items.map((item) => {
-  // });
+  const lineItems = items.map((item) => {
+    return {
+      price_data: {
+        currency: "usd",
+        product_data: {
+          name: item.title,
+          images: [item.image],
+        },
+        unit_amount: item.price * 100,
+      },
+      adjustable_quantity: {
+        enabled: true,
+        minimum: 1,
+      },
+      quantity: item.quantity,
+    };
+  });
 
   const params = {
     submit_type: "pay",
@@ -18,25 +33,9 @@ export async function POST(req) {
     payment_method_types: ["card"],
     billing_address_collection: "auto",
     //shipping_options: [{ shipping_rate: "shr_1Kn3IaEnylLNWUqj5rqhg9oV" }],
-    line_items: items?.map((item) => {
-      return {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: item.title,
-            images: [item.image],
-          },
-          unit_amount: item.price * 100,
-        },
-        adjustable_quantity: {
-          enabled: true,
-          minimum: 1,
-        },
-        quantity: item.quantity,
-      };
-    }),
-    success_url: `${origin}`,
-    cancel_url: `${origin}`,
+    line_items: lineItems,
+    success_url: `${origin}/stripe/success`,
+    cancel_url: `${origin}/stripe/cancel`,
   };
 
   // Create Checkout Sessions from body params.
