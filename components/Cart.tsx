@@ -143,8 +143,9 @@ const Cart = () => {
               </div>
             </div>
             <button
+              disabled={cartItems.length == 0}
               onClick={checkOut}
-              className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
+              className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600 disabled:bg-blue-200"
             >
               Check out
             </button>
