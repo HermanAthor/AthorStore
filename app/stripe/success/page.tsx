@@ -23,9 +23,9 @@ const SuccessPage: React.FC = () => {
             </p>
             <h2 className="text-gray-800 text-lg">Checkout</h2>
           </div>
-          <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start max-w-[1604px] mt-[100px] mx-auto md:px-5 w-full">
+          <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start max-w-[1604px] mx-auto md:px-5 w-full">
             <div className="flex md:flex-1 flex-row gap-6 items-center justify-start w-[16%] md:w-full">
-              <h1 className="border-2 border-gray-800 border-solid flex h-14 items-center justify-center sm:px-5 rounded-[50%] text-2xl md:text-[22px] text-center text-gray-800 sm:text-xl w-14">
+              <h1 className="border-2 border-green-500 border-solid flex h-14 items-center justify-center sm:px-5 rounded-[50%] text-2xl md:text-[22px] text-center text-gray-800 sm:text-xl w-14">
                 1
               </h1>
               <h2 className="text-2xl md:text-[22px] text-gray-800 sm:text-xl">
@@ -34,7 +34,7 @@ const SuccessPage: React.FC = () => {
             </div>
             <div className="bg-gray-800 h-0.5 md:ml-[0] ml-[21px] md:mt-0 my-[27px] w-[24%]"></div>
             <div className="flex md:flex-1 flex-row gap-6 items-center justify-center md:ml-[0] ml-[57px] w-[13%] md:w-full">
-              <p className="border-2 border-gray-800 border-solid flex h-14 items-center justify-center sm:px-5 rounded-[50%] text-2xl md:text-[22px] text-center text-gray-800 sm:text-xl w-14">
+              <p className="border-2 border-green-500 border-solid flex h-14 items-center justify-center sm:px-5 rounded-[50%] text-2xl md:text-[22px] text-center text-gray-800 sm:text-xl w-14">
                 2
               </p>
               <h2 className="text-2xl md:text-[22px] text-gray-800 sm:text-xl">
@@ -43,7 +43,7 @@ const SuccessPage: React.FC = () => {
             </div>
             <div className="bg-gray-800 h-0.5 ml-14 md:ml-[0] md:mt-0 my-[27px] w-[24%]"></div>
             <div className="flex md:flex-1 flex-row gap-6 items-center justify-start ml-8 md:ml-[0] w-[14%] md:w-full">
-              <p className="border-2 border-gray-800 border-solid flex h-14 items-center justify-center rounded-[50%] text-2xl md:text-[22px] text-center text-gray-800 sm:text-xl w-14">
+              <p className="border-2 border-green-500 border-solid flex h-14 items-center justify-center rounded-[50%] text-2xl md:text-[22px] text-center text-gray-800 sm:text-xl w-14">
                 3
               </p>
               <h1 className="text-2xl md:text-[22px] text-gray-800 sm:text-xl">
@@ -52,7 +52,7 @@ const SuccessPage: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col items-center justify-start md:ml-[0] ml-[614px] mt-[222px] md:px-5 w-[37%] md:w-full">
-            <h2 className="md:text-5xl text-[64px] text-gray-800">
+            <h2 className="md:text-5xl text-[64px] text-green-500">
               Checkout Complete!
             </h2>
             <h3 className="leading-[32.00px] mt-4 text-center text-gray-800 text-lg w-[98%] sm:w-full">
@@ -60,15 +60,9 @@ const SuccessPage: React.FC = () => {
               invoice.{" "}
             </h3>
             <Link href={"/"}>
-              <Button
-                className="cursor-pointer font-medium h-[60px] leading-[normal] mt-16 text-center text-lg w-[245px]"
-                shape="square"
-                color="gray_800"
-                size="xl"
-                variant="fill"
-              >
+              <button className="cursor-pointer font-medium h-[60px] leading-[normal] mt-16 text-center text-lg w-[245px] bg-slate-700 rounded-xl text-gray-400">
                 Go Shopping Again
-              </Button>
+              </button>
             </Link>
           </div>
         </div>

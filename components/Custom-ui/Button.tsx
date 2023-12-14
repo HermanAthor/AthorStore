@@ -3,9 +3,9 @@ import React from "react";
 const shapes: any = { square: "rounded-none" } as const;
 const variants: any = {
   outline: {
-    gray_800: "border border-gray-800 border-solid text-gray-800",
-    gray_500: "border-2 border-gray-500 border-solid text-gray-500",
-    bluegray_100: "border border-bluegray-100 border-solid text-gray-800",
+    gray_800: "border border-gray-100 border-solid text-gray-100",
+    gray_500: "border-2 border-gray-100 border-solid text-gray-100",
+    bluegray_100: "border border-bluegray-100 border-solid text-gray-100",
   },
   fill: {
     gray_800: "bg-gray-800 text-white-A700",
