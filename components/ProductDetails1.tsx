@@ -6,6 +6,7 @@ import React from "react";
 import BuyButton from "./cartButtons/BuyButton";
 import SimilarProductsCard from "./similar_products_components/SimilarProductsCard";
 import { filterProducts2 } from "@/helpers/filteredProducts";
+import DetailsImages from "./DetailsImages";
 
 interface pageProps {
   product: Product;
@@ -25,7 +26,8 @@ const ProductDetails1 = async ({ product }: pageProps) => {
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto h-4/5 flex flex-wrap">
             <div className="lg:w-1/2 w-full">
-              <img
+              <DetailsImages images={images} />
+              {/* <img
                 alt={title}
                 className="w-full object-cover object-center rounded border border-gray-200"
                 src={thumbnail}
@@ -41,7 +43,7 @@ const ProductDetails1 = async ({ product }: pageProps) => {
                     />
                   );
                 })}
-              </div>
+              </div> */}
             </div>
 
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
