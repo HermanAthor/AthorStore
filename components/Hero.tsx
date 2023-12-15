@@ -12,40 +12,64 @@ const Hero = () => {
           />
         </div>
       </div>
-      <div className="absolute top-0">
+      {/* <div className="absolute top-10 left-1/2 transform -translate-x-1/2">
         <p className="text-red-400 text-9xl">Shop</p>
-      </div>
-      <div className="grid grid-cols-3 gap-4 absolute bottom-0 right-0 left-0 px-10">
-        <div className=" relative w-full h-full rounded-lg max-h-[600px]">
-          <img
-            src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
-            alt="fashion woman"
-            className="h-full rounded-2xl object-cover"
-          />
-          <div className="flex flex-col justify-start items-start  absolute bottom-5 md:bottom-28 left-5  text-center">
-            <h5 className="text-gray-200 text-lg md:text-xl font-semibold">
-              Shop the collection
-            </h5>
-            <h3 className=" text-xl md:text-3xl text-white font-bold">
-              Fashion Woman
-            </h3>
+      </div> */}
+      <div className="grid grid-cols-1 gap-40 md:gap-20 absolute -bottom-20 right-0 left-0 px-10">
+        <div className="flex justify-center items-center flex-col">
+          <p className="text-red-400 text-5xl md:text-9xl">
+            Christmas Season Sale
+          </p>
+          <button className="p-4 m-4 rounded-full items-center text-white bg-black px-8">
+            <Link href="/shop">Shop Now</Link>
+          </button>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          <div className=" relative w-full h-full rounded-lg max-w-[500px]">
+            <img
+              src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="fashion woman"
+              className="h-full rounded-2xl object-cover"
+            />
+            <div className="flex flex-col justify-start items-start  absolute bottom-5 md:bottom-28 left-5  text-center">
+              <h5 className="text-gray-200 text-lg md:text-xl font-semibold">
+                Shop the collection
+              </h5>
+              <h3 className=" text-xl md:text-3xl text-white font-bold">
+                Fashion Woman
+              </h3>
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <img
-            src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
-            alt="fashion woman"
-            className="rounded-lg h-3/4"
-          />
-          <h3 className="text-4xl text-gray-500">Fashion Woman</h3>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <img
-            src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
-            alt="fashion woman"
-            className="rounded-lg h-3/4"
-          />
-          <h3 className="text-4xl text-gray-500">Fashion Woman</h3>
+          <div className=" relative w-full h-full rounded-lg max-w-[500px]">
+            <img
+              src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="fashion woman"
+              className="h-full rounded-2xl object-cover"
+            />
+            <div className="flex flex-col justify-start items-start  absolute bottom-5 md:bottom-28 left-5  text-center">
+              <h5 className="text-gray-200 text-lg md:text-xl font-semibold">
+                Shop the collection
+              </h5>
+              <h3 className=" text-xl md:text-3xl text-white font-bold">
+                Fashion Woman
+              </h3>
+            </div>
+          </div>
+          <div className=" relative w-full h-full rounded-lg max-w-[500px]">
+            <img
+              src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="fashion woman"
+              className="h-full rounded-2xl object-cover"
+            />
+            <div className="flex flex-col justify-start items-start  absolute bottom-5 md:bottom-28 left-5  text-center">
+              <h5 className="text-gray-200 text-lg md:text-xl font-semibold">
+                Shop the collection
+              </h5>
+              <h3 className=" text-xl md:text-3xl text-white font-bold">
+                Fashion Woman
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
