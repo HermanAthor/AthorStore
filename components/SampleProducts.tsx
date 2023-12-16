@@ -15,56 +15,58 @@ type PropsType = {
 
 function SampleProducts({ category, product }: PropsType) {
   return (
-    <div className="px-5">
-      <div className="text-xl md:text-3xl font-bold py-6">{category}</div>
-      <Swiper
-        breakpoints={{
-          350: {
-            slidesPerView: 1,
-            spaceBetween: 2,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 2,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 3,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 5,
-          },
-        }}
-        navigation={true}
-        loop={true}
-        slidesPerView={3}
-        modules={[Navigation, Pagination]}
-        pagination={{ type: "fraction" }}
-        className="mySwiper"
-      >
-        {product.map((item) => {
-          return (
-            <SwiperSlide className="mySwiper" key={item.id}>
-              <div className="card w-full h-80 bg-base-100 shadow-xl image-full">
-                <figure>
-                  <img src={item.image} alt={item.title} />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">{item.title}</h2>
-                  <p></p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">
-                      <Link href={`/category/${item.category}`}>Buy Now</Link>
-                    </button>
+    <section>
+      <div className="px-5">
+        <div className="text-xl md:text-3xl font-bold py-6">{category}</div>
+        <Swiper
+          breakpoints={{
+            350: {
+              slidesPerView: 1,
+              spaceBetween: 2,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 2,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 3,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 5,
+            },
+          }}
+          navigation={true}
+          loop={true}
+          slidesPerView={3}
+          modules={[Navigation, Pagination]}
+          pagination={{ type: "fraction" }}
+          className="mySwiper"
+        >
+          {product.map((item) => {
+            return (
+              <SwiperSlide className="mySwiper" key={item.id}>
+                <div className="card w-full h-80 bg-base-100 shadow-xl image-full">
+                  <figure>
+                    <img src={item.image} alt={item.title} />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">{item.title}</h2>
+                    <p></p>
+                    <div className="card-actions justify-end">
+                      <button className="btn btn-primary">
+                        <Link href={`/category/${item.category}`}>Buy Now</Link>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-    </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+    </section>
   );
 }
 
