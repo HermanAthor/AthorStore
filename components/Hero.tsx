@@ -3,8 +3,8 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <section className="w-full h-screen pt-0 ">
-      <div className="border-b-4 border-gray-900 relative ">
-        <div className=" w-full h-[600px]">
+      <div className="border-b-2 border-gray-900 relative ">
+        <div className="w-full h-[600px]">
           <img
             src="heroimage1.jpeg"
             alt="hero"
@@ -15,9 +15,9 @@ const Hero = () => {
       {/* <div className="absolute top-10 left-1/2 transform -translate-x-1/2">
         <p className="text-red-400 text-9xl">Shop</p>
       </div> */}
-      <div className="grid grid-cols-1 gap-40 md:gap-20 absolute -bottom-20 right-0 left-0 px-10">
+      <div className="grid grid-cols-1 gap-40 md:gap-14 absolute -bottom-20 right-0 left-0 px-10">
         <div className="flex justify-center items-center flex-col">
-          <p className="text-red-400 text-5xl md:text-9xl">
+          <p className="text-red-400 text-2xl md:text-9xl ">
             Christmas Season Sale
           </p>
           <button className="p-4 m-4 rounded-full items-center text-white bg-black px-8">
@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="grid grid-cols-3 gap-2">
           <div className=" relative w-full h-full rounded-lg max-w-[500px]">
             <img
-              src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="man-clothes.jpeg"
               alt="fashion woman"
               className="h-full rounded-2xl object-cover"
             />
@@ -42,7 +42,7 @@ const Hero = () => {
           </div>
           <div className=" relative w-full h-full rounded-lg max-w-[500px]">
             <img
-              src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="woman-clothes.jpeg"
               alt="fashion woman"
               className="h-full rounded-2xl object-cover"
             />
@@ -57,7 +57,7 @@ const Hero = () => {
           </div>
           <div className=" relative w-full h-full rounded-lg max-w-[500px]">
             <img
-              src="https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="tech-gadgets.jpeg"
               alt="fashion woman"
               className="h-full rounded-2xl object-cover"
             />
