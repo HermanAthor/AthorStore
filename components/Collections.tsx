@@ -8,11 +8,11 @@ interface iCollectionsProps {
 const Collections = ({ collection }: iCollectionsProps) => {
   const { image, name } = collection;
   return (
-    <div className=" relative w-full h-full rounded-lg max-w-[500px] overflow-y-visible pb-5">
+    <div className=" relative w-full h-full rounded-lg max-w-[400px] overflow-y-visible pb-5 hover:opacity-70">
       <img
         src={image}
         alt="fashion woman"
-        className="md:h-[600px] rounded-2xl object-cover max-w-[500px] md:w-[500px] w-full "
+        className="md:h-[600px] rounded-2xl object-cover max-w-[400px] md:w-[400px] w-full "
       />
       <div className="flex flex-col justify-start items-start  absolute bottom-5 md:bottom-28 left-5  text-center">
         <h5 className="text-gray-200 text-lg md:text-xl font-semibold">
