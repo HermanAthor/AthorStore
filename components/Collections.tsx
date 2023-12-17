@@ -1,12 +1,15 @@
 import { iCollections } from "@/data/collections";
+import { urlFor } from "@/libs/sanity";
 import React from "react";
 
 interface iCollectionsProps {
-  collection: iCollections;
+  collection: any;
 }
 
 const Collections = ({ collection }: iCollectionsProps) => {
-  const { image, name } = collection;
+  const { collectionCategory, collectionImage } = collection;
+  const image = urlFor(collectionImage.asset._ref).url();
+
   return (
     <div className=" relative w-full h-full rounded-lg max-w-[400px] overflow-y-visible pb-5 hover:opacity-70">
       <img
@@ -18,7 +21,9 @@ const Collections = ({ collection }: iCollectionsProps) => {
         <h5 className="text-gray-200 text-lg md:text-xl font-semibold">
           Shop the collection
         </h5>
-        <h3 className=" text-xl md:text-3xl text-white font-bold">{name}</h3>
+        <h3 className=" text-xl md:text-3xl text-white font-bold">
+          {collectionCategory}
+        </h3>
       </div>
     </div>
   );
