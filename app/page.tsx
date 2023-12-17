@@ -4,9 +4,12 @@ import Sponsers from "@/components/Sponsers";
 import { getProducts } from "@/helpers/fetchingData";
 import { filterProducts } from "@/helpers/filteredProducts";
 import AllProducts from "@/components/AllProducts";
+import { client } from "@/libs/sanity";
+import { fetchHeroData } from "@/helpers/fetchHeroData";
 
 export default async function Home() {
   const products = await getProducts();
+  const heroData = await fetchHeroData();
   const jewelery = filterProducts({
     products: products,
     category: "jewelery",
@@ -28,7 +31,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Hero />
+      <Hero heroData={heroData} />
       <SampleProducts product={womensClothing} category={"Women's clothing"} />
       <SampleProducts product={mensClothing} category={"Men's clothing"} />
       <SampleProducts product={electronics} category={"Electronics"} />

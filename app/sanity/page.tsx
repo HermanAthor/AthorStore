@@ -12,6 +12,7 @@ const getData = async () => {
 const SanityProductsPage = async () => {
   // Making use of the function that queries data form sanity studio
   const data = await getData();
+  console.log(data);
   return (
     <div>
       <ProductCard products={data} category={"Just products"} />
