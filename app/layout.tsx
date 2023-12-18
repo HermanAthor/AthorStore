@@ -4,6 +4,7 @@ import "./globals.css";
 import HeaderComp from "@/components/HeaderComp";
 import Footer from "@/components/Footer";
 import RecoilProvider from "@/context/recoilProvider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <RecoilProvider>
-          <HeaderComp />
-          {children}
-          <Footer />
-        </RecoilProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <RecoilProvider>
+            <HeaderComp />
+            {children}
+            <Footer />
+          </RecoilProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

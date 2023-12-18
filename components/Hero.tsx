@@ -5,7 +5,8 @@ import Link from "next/link";
 import { collections } from "@/data/collections";
 import Collections from "./Collections";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import "swiper/css/effect-fade";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { urlFor } from "@/libs/sanity";
 
 type PropsType = {
@@ -16,29 +17,11 @@ function Hero({ heroData }: PropsType) {
   return (
     <div>
       <Swiper
-        // breakpoints={{
-        //   350: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 2,
-        //   },
-        //   640: {
-        //     slidesPerView: 2,
-        //     spaceBetween: 2,
-        //   },
-        //   768: {
-        //     slidesPerView: 3,
-        //     spaceBetween: 3,
-        //   },
-        //   1024: {
-        //     slidesPerView: 3,
-        //     spaceBetween: 5,
-        //   },
-        // }}
-        modules={[Navigation]}
-        navigation={true}
+        modules={[Autoplay, EffectFade]}
         loop={true}
+        effect="fade"
         slidesPerView={1}
-        autoplay={{ delay: 1500, disableOnInteraction: false }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         className="mySwiper"
       >
         {heroData.map((item: any) => {

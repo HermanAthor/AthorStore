@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.28.1",
     "@sanity/vision": "^3.5.0",
     "@stripe/stripe-js": "^2.2.0",
     "axios": "^1.6.2",
