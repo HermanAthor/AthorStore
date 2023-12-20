@@ -1,5 +1,5 @@
 import ProductInterface, { Product } from "./fetchingData";
-//import toast, { Toaster } from "react-hot-toast";
+import { toast } from "react-toastify";
 
 interface addToCartProps {
   product: ProductInterface | Product;
@@ -11,7 +11,6 @@ interface removeFromCartProps {
   cartItems: Product[] | ProductInterface[];
   setCartItems: any;
 }
-//const notify = () => toast("Item added to cart");
 
 export const addToCart = async ({
   product,
@@ -24,16 +23,17 @@ export const addToCart = async ({
   );
 
   if (isItemInCart) {
-    setCartItems(
-      cartItems.map((cartItem: any) =>
+    setCartItems((prevCartItems: any) =>
+      prevCartItems.map((cartItem: any) =>
         cartItem.id === product.id
           ? { ...cartItem, quantity: cartItem.quantity + 1 }
           : cartItem
       )
     );
-    //notify();
+    toast("Item added to cart");
   } else {
     setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    toast("Item already added to cart");
   }
 };
 

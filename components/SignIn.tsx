@@ -26,8 +26,18 @@ function SignIn({
   return (
     <div>
       <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-        Create an account
+        Create an account with
       </h1>
+      <div className="grid grid-cols-2 gap-5 py-5">
+        <div className="flex flex-row justify-center items-center border border-gray-300 text-gray-300 rounded-xl p-3">
+          <img className="w-8 h-8 mr-2" src="/google.svg" alt="logo" />
+          <p className="hidden md:inline">Google</p>
+        </div>
+        <div className="flex flex-row justify-center items-center border border-gray-300 text-gray-300 rounded-xl">
+          <img className="w-10 h-10 mr-2" src="/apple.svg" alt="logo" />
+          <p className="hidden md:inline">Apple</p>
+        </div>
+      </div>
       <div className="flex flex-row justify-center items-center">
         <span className="h-[2px] w-full bg-slate-600 rounded-full"></span>
         <span className="px-4">Or</span>

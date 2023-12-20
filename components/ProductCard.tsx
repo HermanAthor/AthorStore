@@ -30,7 +30,7 @@ const ProductCard: FC<ProductCardProps> = ({ products, category }) => {
           } = product;
           const productTitle = truncateString({ str: title, num: 50 });
           return (
-            <div className="">
+            <div key={id} className="">
               <div className="bg-white shadow-md rounded-lg dark:bg-gray-800 dark:border-gray-700 w-full">
                 <Link href={`/products/${id}`}>
                   <img

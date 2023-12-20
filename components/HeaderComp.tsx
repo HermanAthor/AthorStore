@@ -1,6 +1,7 @@
 "use client";
 
 import cartState from "@/context/recoilContext";
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
@@ -11,8 +12,8 @@ const HeaderComp = () => {
 
   return (
     <div className="navbar dark:bg-gray-500 sticky top-0 z-30 bg-slate-600 text-2xl">
-      <div className="navbar-start">
-        <div className="dropdown">
+      <div className="navbar-start flex justify-center items-center">
+        <div className="dropdown flex justify-between items-center">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,12 +63,15 @@ const HeaderComp = () => {
                 </div>
               </Link>
             </li>
+            <UserButton />
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           AthorStore
         </Link>
+        <UserButton />
       </div>
+      <UserButton />
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
@@ -101,7 +105,9 @@ const HeaderComp = () => {
               </div>
             </Link>
           </li>
+          <UserButton />
         </ul>
+        <UserButton />
       </div>
     </div>
   );

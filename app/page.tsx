@@ -4,7 +4,7 @@ import Sponsers from "@/components/Sponsers";
 import { getProducts } from "@/helpers/fetchingData";
 import { filterProducts } from "@/helpers/filteredProducts";
 import AllProducts from "@/components/AllProducts";
-import { client } from "@/libs/sanity";
+
 import { fetchHeroData } from "@/helpers/fetchHeroData";
 
 export default async function Home() {

@@ -3,6 +3,7 @@ import cartState from "@/context/recoilContext";
 import { addToCart } from "@/helpers/cartInteractions";
 import ProductInterface, { Product } from "@/helpers/fetchingData";
 import React from "react";
+import { toast } from "react-toastify";
 import { useRecoilState } from "recoil";
 type pageProps = {
   product: ProductInterface | Product;
@@ -10,6 +11,7 @@ type pageProps = {
 };
 const BuyButton = ({ product, text }: pageProps) => {
   const [cartItems, setCartItems] = useRecoilState<any>(cartState);
+  const notify = () => toast("Item added to cart");
   return (
     <div className=" inline-block">
       <button

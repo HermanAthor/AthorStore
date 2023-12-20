@@ -1,12 +1,13 @@
 "use client";
 import ProductInterface from "@/helpers/fetchingData";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+
 import { Navigation } from "swiper/modules";
 import { Pagination } from "swiper/modules";
 import Link from "next/link";
+
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 type PropsType = {
   category: string;
@@ -17,7 +18,9 @@ function SampleProducts({ category, product }: PropsType) {
   return (
     <section>
       <div className="px-5">
-        <div className="text-xl md:text-3xl font-bold py-6">{category}</div>
+        <div className="text-xl md:text-3xl font-bold py-6">
+          {category || <Skeleton />}
+        </div>
         <Swiper
           breakpoints={{
             350: {
@@ -52,7 +55,7 @@ function SampleProducts({ category, product }: PropsType) {
                     <img src={item.image} alt={item.title} />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">{item.title}</h2>
+                    <h2 className="card-title">{item.title || <Skeleton />}</h2>
                     <p></p>
                     <div className="card-actions justify-end">
                       <button className="btn btn-primary">

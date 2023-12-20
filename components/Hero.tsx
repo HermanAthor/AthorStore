@@ -1,12 +1,8 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import Link from "next/link";
-import { collections } from "@/data/collections";
 import Collections from "./Collections";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
-import { Autoplay, EffectFade, Navigation } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { urlFor } from "@/libs/sanity";
 
 type PropsType = {
@@ -52,7 +48,7 @@ function Hero({ heroData }: PropsType) {
 
                 <div className="flex md:flex-row flex-wrap justify-center items-center gap-5 -mt-52 px-3">
                   {collections.map((collection: any) => (
-                    <Collections collection={collection} />
+                    <Collections key={collection} collection={collection} />
                   ))}
                 </div>
               </section>

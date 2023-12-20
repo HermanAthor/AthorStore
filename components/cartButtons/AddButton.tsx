@@ -4,6 +4,7 @@ import { addToCart, removeFromCart } from "@/helpers/cartInteractions";
 import ProductInterface, { Product } from "@/helpers/fetchingData";
 import React from "react";
 import { useRecoilState } from "recoil";
+import { ToastContainer, toast } from "react-toastify";
 //import toast, { Toaster } from "react-hot-toast";
 
 interface pageProps {
@@ -13,6 +14,7 @@ interface pageProps {
 
 const AddButton = ({ item, text }: pageProps) => {
   const [cartItems, setCartItems] = useRecoilState<any>(cartState);
+  const notify = () => toast("Item added to cart");
   return (
     <div>
       <button
@@ -28,7 +30,6 @@ const AddButton = ({ item, text }: pageProps) => {
         {" "}
         {text}{" "}
       </button>
-      {/* <Toaster /> */}
     </div>
   );
 };
