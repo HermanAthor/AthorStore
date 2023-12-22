@@ -13,6 +13,7 @@
     "@sanity/vision": "^3.5.0",
     "@stripe/stripe-js": "^2.2.0",
     "axios": "^1.6.2",
+    "firebase": "^10.7.1",
     "next": "^14.0.3",
     "next-sanity": "^7.0.1",
     "react": "^18",
