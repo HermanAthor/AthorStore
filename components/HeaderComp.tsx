@@ -63,13 +63,11 @@ const HeaderComp = () => {
                 </div>
               </Link>
             </li>
-            <UserButton />
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           AthorStore
         </Link>
-        <UserButton />
       </div>
       <UserButton />
       <div className="navbar-center hidden lg:flex">
@@ -105,7 +103,6 @@ const HeaderComp = () => {
               </div>
             </Link>
           </li>
-          <UserButton />
         </ul>
         <UserButton />
       </div>
