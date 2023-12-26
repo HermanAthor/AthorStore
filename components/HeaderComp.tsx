@@ -5,10 +5,12 @@ import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import { useRecoilValue } from "recoil";
+import { useCart } from "react-use-cart";
+//import { useRecoilValue } from "recoil";
 
 const HeaderComp = () => {
-  const cartItems = useRecoilValue<any>(cartState);
+  //const cartItems = useRecoilValue<any>(cartState);
+  const { totalUniqueItems } = useCart();
 
   return (
     <div className="navbar dark:bg-gray-500 sticky top-0 z-30 bg-slate-600 text-2xl">
@@ -55,7 +57,7 @@ const HeaderComp = () => {
               <Link href="/cart">
                 <div className="indicator">
                   <span className="indicator-item badge text-white bg-red-400">
-                    {cartItems?.length}
+                    {totalUniqueItems}
                   </span>
                   <div className="text-3xl">
                     <FaShoppingCart />
@@ -69,7 +71,6 @@ const HeaderComp = () => {
           AthorStore
         </Link>
       </div>
-      <UserButton />
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
@@ -95,7 +96,7 @@ const HeaderComp = () => {
             <Link href="/cart">
               <div className="indicator">
                 <span className="indicator-item badge text-white bg-red-400">
-                  {cartItems?.length}
+                  {totalUniqueItems}
                 </span>
                 <div className="text-3xl">
                   <FaShoppingCart />

@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import AddButton from "./cartButtons/AddButton";
 import RemoveItem from "./cartButtons/RemoveItem";
-import DeleteFromCart from "./cartButtons/DeleteFromCart";
 import axios from "axios";
 import getStripe from "../libs/getStripe";
+import { useCart } from "react-use-cart";
+import Link from "next/link";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useRecoilState<any>(cartState);
@@ -61,14 +62,27 @@ const Cart = () => {
 
     stripe.redirectToCheckout({ sessionId: data.id });
   };
-
+  //code related to react-use-cart library
+  const { isEmpty, items, updateItemQuantity, removeItem } = useCart();
+  if (isEmpty)
+    return (
+      <div className="flex justify-center items-center flex-col py-40">
+        <p className="text-2xl md:text-4xl">Your cart is empty</p>
+        <p className="text-xl md:text-2xl py-10">
+          But you can fill it up by clicking{" "}
+          <span className="text-blue-400 hover:underline">
+            <Link href={"/shop"}>shop here</Link>
+          </span>
+        </p>
+      </div>
+    );
   return (
     <>
       <div className="h-screen bg-gray-100 dark:bg-gray-700 pt-20 overflow-scroll no-scrollbar">
         <h1 className="mb-10 text-center text-2xl font-bold">Your Items</h1>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
           <div className="rounded-lg md:w-2/3">
-            {cartItems?.map((item: any) => {
+            {items?.map((item: any) => {
               const { id, title, quantity, image, price } = item;
 
               let photo = "";
@@ -96,7 +110,14 @@ const Cart = () => {
                     </div>
                     <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                       <div className="flex items-center border-gray-100">
-                        <RemoveItem item={item} text={"-"} />
+                        <button
+                          onClick={() =>
+                            updateItemQuantity(item.id, item.quantity - 1)
+                          }
+                          className="cursor-pointer  bg-gray-100 dark:bg-gray-700 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                        >
+                          {"-"}
+                        </button>
                         <input
                           className="h-8 w-8 bg-white dark:bg-gray-700 text-center text-xs outline-none"
                           type="number"
@@ -105,11 +126,33 @@ const Cart = () => {
                           min="1"
                           id="I do not this id for now"
                         />
-                        <AddButton item={item} text={"+"} />
+                        <button
+                          onClick={() =>
+                            updateItemQuantity(item.id, item.quantity + 1)
+                          }
+                          className="cursor-pointer  bg-gray-100 dark:bg-gray-700 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                        >
+                          {"+"}
+                        </button>
                       </div>
                       <div className="flex items-center space-x-4">
                         <p className="text-sm">{price}</p>
-                        <DeleteFromCart item={item} />
+                        <button onClick={() => removeItem(item.id)}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </button>
                       </div>
                     </div>
                   </div>

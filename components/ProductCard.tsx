@@ -3,6 +3,7 @@ import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
 import React, { FC } from "react";
 import BuyButton from "./cartButtons/BuyButton";
+import { useCart } from "react-use-cart";
 
 interface ProductCardProps {
   products: ProductInterface[];
@@ -10,6 +11,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ products, category }) => {
+  const { addItem } = useCart();
   const decodedCategory = decodeURIComponent(category);
   return (
     <div className="px-3 pb-5">
@@ -95,6 +97,9 @@ const ProductCard: FC<ProductCardProps> = ({ products, category }) => {
                       ${price}
                     </h3>
                     <div className=" inline-block">
+                      <button onClick={() => addItem(product)}>
+                        add to cart
+                      </button>
                       <BuyButton text={"Buy"} product={product} />
                     </div>
                   </div>
