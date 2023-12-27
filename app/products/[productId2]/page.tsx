@@ -1,10 +1,9 @@
-import SameProducts from "@/components/MoreProducts";
 import ProductInterface, { getProducts } from "@/helpers/fetchingData";
 import React, { FC } from "react";
 import MoreProducts from "@/components/MoreProducts";
 import ProductCard from "@/components/ProductCard";
 import { filterProducts } from "@/helpers/filteredProducts";
-import BuyButton from "@/components/cartButtons/BuyButton";
+
 import SizeAndColorPreference from "@/components/Custom-ui/SizeAndColorPreference";
 
 interface pageProps {
@@ -13,6 +12,7 @@ interface pageProps {
 const ProductPage2: FC<pageProps> = async ({ params }) => {
   const products = await getProducts();
   const productId = params.productId2;
+  console.log(productId);
 
   const getProductsDetails = async (): Promise<ProductInterface> => {
     const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
@@ -169,7 +169,6 @@ const ProductPage2: FC<pageProps> = async ({ params }) => {
                   ${price}
                 </span>
                 <div className="flex items-center">
-                  <BuyButton text={"Add to Cart"} product={product} />
                   <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <svg
                       fill="currentColor"

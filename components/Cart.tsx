@@ -1,43 +1,34 @@
 "use client";
 
-import cartState from "@/context/recoilContext";
+//import cartState from "@/context/recoilContext";
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
-import AddButton from "./cartButtons/AddButton";
-import RemoveItem from "./cartButtons/RemoveItem";
-import axios from "axios";
+// import { useRecoilState } from "recoil";
+// import AddButton from "./cartButtons/AddButton";
+// import RemoveItem from "./cartButtons/RemoveItem";
+// import axios from "axios";
 import getStripe from "../libs/getStripe";
 import { useCart } from "react-use-cart";
 import Link from "next/link";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useRecoilState<any>(cartState);
+  // const [cartItems, setCartItems] = useRecoilState<any>(cartState);
   const [subTotal, setSubTotal] = useState<number>(0);
+  //code related to react-use-cart library
+  const { isEmpty, items, updateItemQuantity, removeItem } = useCart();
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+  // useEffect(() => {
+  //   let totalAmount = 0;
 
-  useEffect(() => {
-    const cartItems = localStorage.getItem("cartItems");
-    if (cartItems) {
-      setCartItems(JSON.parse(cartItems));
-    }
-  }, []);
+  //   items.forEach((item: any) => {
+  //     const { quantity, price } = item;
+  //     totalAmount += price * quantity;
+  //   });
 
-  useEffect(() => {
-    let totalAmount = 0;
-
-    cartItems.forEach((item: any) => {
-      const { quantity, price } = item;
-      totalAmount += price * quantity;
-    });
-
-    setSubTotal(totalAmount);
-  }, [cartItems]);
+  //   setSubTotal(totalAmount);
+  // }, [items]);
   const shippingAmount = 4.99;
   const grandTotal = subTotal + shippingAmount;
-
+  //Stripe checkout
   const checkOut = async () => {
     const stripe = await getStripe();
 
@@ -46,7 +37,7 @@ const Cart = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(cartItems),
+      body: JSON.stringify(items),
     });
 
     if (!response.ok) {
@@ -62,8 +53,7 @@ const Cart = () => {
 
     stripe.redirectToCheckout({ sessionId: data.id });
   };
-  //code related to react-use-cart library
-  const { isEmpty, items, updateItemQuantity, removeItem } = useCart();
+
   if (isEmpty)
     return (
       <div className="flex justify-center items-center flex-col py-40">
@@ -186,7 +176,7 @@ const Cart = () => {
               </div>
             </div>
             <button
-              disabled={cartItems.length == 0}
+              disabled={isEmpty}
               onClick={checkOut}
               className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600 disabled:bg-blue-200"
             >
@@ -199,3 +189,14 @@ const Cart = () => {
   );
 };
 export default Cart;
+
+// useEffect(() => {
+//   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+// }, [cartItems]);
+
+// useEffect(() => {
+//   const cartItems = localStorage.getItem("cartItems");
+//   if (cartItems) {
+//     setCartItems(JSON.parse(cartItems));
+//   }
+// }, []);

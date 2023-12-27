@@ -12,6 +12,7 @@ import RecoilProvider from "@/context/recoilProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 import ShoppingCartProvider from "@/context/ShoppingCartProvider";
+import dynamic from "next/dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
   title: "kstore",
   description: "E-commerce site built using Nextjs 14",
 };
+const NoSSR = dynamic(() => import("@/components/HeaderComp"), { ssr: false });
 
 export default function RootLayout({
   children,
@@ -31,7 +33,8 @@ export default function RootLayout({
         <html lang="en">
           <body className={inter.className}>
             <RecoilProvider>
-              <HeaderComp />
+              <NoSSR />
+              {/* <HeaderComp /> */}
               {children}
               <ToastContainer />
               <Footer />

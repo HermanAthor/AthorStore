@@ -1,8 +1,9 @@
-import ProductInterface, { Product, getProducts } from "@/helpers/fetchingData";
+import { Product } from "@/helpers/fetchingData";
 import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
 import React, { FC } from "react";
-import BuyButton from "../cartButtons/BuyButton";
+
+import AddToCart from "../cartButtons/AddToCart";
 
 interface ProductCardProps {
   products: Product[];
@@ -95,7 +96,7 @@ const SimilarProductsCard: FC<ProductCardProps> = ({ products, category }) => {
                       ${price}
                     </h3>
                     <div className=" inline-block">
-                      <BuyButton text={"Buy"} product={product} />
+                      <AddToCart item={product} />
                     </div>
                   </div>
                 </div>

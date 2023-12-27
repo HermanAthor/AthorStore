@@ -6,6 +6,7 @@ import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
 import React, { FC } from "react";
 import BuyButton from "./cartButtons/BuyButton";
+import AddToCart from "./cartButtons/AddToCart";
 
 interface pageProps {
   productsText: string;
@@ -86,7 +87,7 @@ const AllProducts: FC<pageProps> = async ({ productsText }) => {
                     <span className=" text-lg md:text-2xl font-bold text-gray-900 dark:text-white">
                       {price}DKK
                     </span>
-                    <BuyButton text={"Buy"} product={product} />
+                    <AddToCart item={product} />
                   </div>
                 </div>
               </div>

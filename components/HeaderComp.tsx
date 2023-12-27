@@ -10,7 +10,7 @@ import { useCart } from "react-use-cart";
 
 const HeaderComp = () => {
   //const cartItems = useRecoilValue<any>(cartState);
-  const { totalUniqueItems } = useCart();
+  const { totalUniqueItems, isEmpty } = useCart();
 
   return (
     <div className="navbar dark:bg-gray-500 sticky top-0 z-30 bg-slate-600 text-2xl">
@@ -56,9 +56,9 @@ const HeaderComp = () => {
             <li>
               <Link href="/cart">
                 <div className="indicator">
-                  <span className="indicator-item badge text-white bg-red-400">
+                  <h1 className="indicator-item badge text-white bg-red-400">
                     {totalUniqueItems}
-                  </span>
+                  </h1>
                   <div className="text-3xl">
                     <FaShoppingCart />
                   </div>
@@ -95,9 +95,9 @@ const HeaderComp = () => {
           <li>
             <Link href="/cart">
               <div className="indicator">
-                <span className="indicator-item badge text-white bg-red-400">
+                <h1 className="indicator-item badge text-white bg-red-400">
                   {totalUniqueItems}
-                </span>
+                </h1>
                 <div className="text-3xl">
                   <FaShoppingCart />
                 </div>

@@ -25,7 +25,7 @@ function Hero({ heroData }: PropsType) {
           const image = urlFor(bannerImage.asset._ref).url();
 
           return (
-            <SwiperSlide className="mySwiper" key={_d}>
+            <SwiperSlide className="mySwiper" key={item}>
               <section className="w-full h-fit pt-0 relative overflow-visible">
                 <div
                   style={{ backgroundImage: `url(${image})` }}

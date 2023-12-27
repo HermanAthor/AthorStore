@@ -3,6 +3,7 @@ import truncateString from "@/helpers/truncateString";
 import Link from "next/link";
 import React from "react";
 import BuyButton from "./cartButtons/BuyButton";
+import AddToCart from "./cartButtons/AddToCart";
 
 interface pageProps {
   productCategory: string;
@@ -86,7 +87,7 @@ const MoreProducts = async ({ productCategory }: pageProps) => {
                       <h3 className=" text-sm md:text-2xl font-bold text-gray-900 dark:text-white">
                         ${price}
                       </h3>
-                      <BuyButton text={"Buy"} product={product} />
+                      <AddToCart item={product} />
                     </div>
                   </div>
                 </div>
