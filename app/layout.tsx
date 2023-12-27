@@ -27,18 +27,18 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <ShoppingCartProvider>
+      <ShoppingCartProvider>
+        <html lang="en">
+          <body className={inter.className}>
             <RecoilProvider>
               <HeaderComp />
               {children}
               <ToastContainer />
               <Footer />
             </RecoilProvider>
-          </ShoppingCartProvider>
-        </body>
-      </html>
+          </body>
+        </html>
+      </ShoppingCartProvider>
     </ClerkProvider>
   );
 }
