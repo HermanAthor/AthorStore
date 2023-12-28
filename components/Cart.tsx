@@ -16,16 +16,16 @@ const Cart = () => {
   //code related to react-use-cart library
   const { isEmpty, items, updateItemQuantity, removeItem } = useCart();
 
-  // useEffect(() => {
-  //   let totalAmount = 0;
+  useEffect(() => {
+    let totalAmount = 0;
 
-  //   items.forEach((item: any) => {
-  //     const { quantity, price } = item;
-  //     totalAmount += price * quantity;
-  //   });
+    items.forEach((item: any) => {
+      const { quantity, price } = item;
+      totalAmount += price * quantity;
+    });
 
-  //   setSubTotal(totalAmount);
-  // }, [items]);
+    setSubTotal(totalAmount);
+  }, [items]);
   const shippingAmount = 4.99;
   const grandTotal = subTotal + shippingAmount;
   //Stripe checkout
@@ -159,7 +159,7 @@ const Cart = () => {
             </div>
             <div className="flex justify-between">
               <p className="text-gray-700 dark:text-gray-100">Shipping</p>
-              <p className="text-gray-700 dark:text-gray-100">
+              <p className="text-gray-700 dark:text-gray-100 line-through">
                 {shippingAmount}
               </p>
             </div>
@@ -168,7 +168,10 @@ const Cart = () => {
               <p className="text-lg font-bold">Total</p>
               <div className="">
                 <p className="mb-1 text-lg font-bold">
-                  {grandTotal.toFixed(2)} USD
+                  {subTotal.toFixed(2)} USD
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-100 line-through">
+                  {grandTotal.toFixed(2)}
                 </p>
                 <p className="text-sm text-gray-700 dark:text-gray-100">
                   including VAT
@@ -189,14 +192,3 @@ const Cart = () => {
   );
 };
 export default Cart;
-
-// useEffect(() => {
-//   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-// }, [cartItems]);
-
-// useEffect(() => {
-//   const cartItems = localStorage.getItem("cartItems");
-//   if (cartItems) {
-//     setCartItems(JSON.parse(cartItems));
-//   }
-// }, []);
