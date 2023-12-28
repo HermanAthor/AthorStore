@@ -4,7 +4,7 @@ import Stripe from "stripe";
 //const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET);
 
 export async function POST(req) {
-  const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET);
+  const stripe = new Stripe(process.env.STRIPE_SECRET);
   const items = await req.json();
   const origin = process.env.NEXT_PUBLIC_APP_DOMAIN;
   console.log(origin);
