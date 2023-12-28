@@ -6,7 +6,7 @@ import Stripe from "stripe";
 export async function POST(req) {
   const stripe = new Stripe(process.env.STRIPE_SECRET);
   const items = await req.json();
-  const origin = process.env.NEXT_PUBLIC_APP_DOMAIN;
+  const origin = req.headers.get("origin");
   console.log(origin);
 
   const lineItems = items.map((item) => {
